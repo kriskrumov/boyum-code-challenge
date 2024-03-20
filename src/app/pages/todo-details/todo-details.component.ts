@@ -29,11 +29,12 @@ export class TodoDetailsComponent {
   constructor(private route: ActivatedRoute, private service: ApiService, private decimalPipe: DecimalPipe, @Inject(LOCALE_ID) private locale: string){}
 
   CalculateDays(dateCreated: any){
-    const test = Date.now();
-    const test2 = dateCreated;
-    const test3 = test - test2; 
-    const test4 = test3 / (1000 * 3600 * 24);
-    this.daysAgo = (Math.round(test4)); 
+    const millisecondsPerDay = 1000 * 3600 * 24;
+    const currentDate = Date.now();
+    const createdDate = new Date(dateCreated).getTime();
+    
+    const differenceInMilliseconds = currentDate - createdDate;
+    this.daysAgo = Math.round(differenceInMilliseconds / millisecondsPerDay);
   }
 
   isValidDate(date: any): boolean {
