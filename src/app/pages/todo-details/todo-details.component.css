@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.todo-details-wrapper {
+    max-width: 600px;
+    margin: 130px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.todo-details-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.details-title-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+span{
+    text-align: end;
+}
+
+.status{
+    text-align: end;
+}
+
+.invalid-data{
+    color: red
+}
+
+#todo-description{
+    margin-bottom: 20px;
+}
+
+.status-completed {
+    color: green;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.status-not-completed {
+    color: red;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+}
+
+.details-second-wrapper {
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 5px 0;
+    color: #666;
+}
+
+p:last-child {
+    margin-bottom: 0;
+    text-align: end;
+}

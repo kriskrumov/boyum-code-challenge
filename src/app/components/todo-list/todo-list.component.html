@@ -1,0 +1,42 @@
+<div class="todo-list-wrapper">
+  <table class="todo-table">
+    <thead>
+      <tr>
+        <th scope="col">Done</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (isLoading) {
+          <h1>Loading...</h1>
+      } @else {
+          @for (todo of todosList; track todo.Id) {
+              <tr class="row-clickable" [routerLink]="['/todo',todo.Id]">
+                <td id="td" scope="row" (click)="$event.stopPropagation()"><app-check-box [isChecked]="todo.Done"/></td>
+                <td id="td">{{todo.Id}}</td>
+                <td><a [routerLink]="['/todo', todo.Id]" [ngClass]="{'done' : todo.Done}">{{todo.Name}}</a></td>
+                @if(isValidDate(todo.Created)){
+                  <td id="created-td">{{todo.Created | date: 'dd/MM/yyyy'}}</td>
+                }@else {
+                  <td id="invalid-date"><span>Invalid Date</span></td>
+                }
+              </tr>
+          }
+      }
+  </tbody>
+  </table>
+  
+  <div class="form-wrapper">
+      <label for="name">Title</label>
+      <input type="text" name="name" id="name" [(ngModel)]="todoObj.name" value={{todoObj.name}}>
+      <label for="name">Description</label>
+      <textarea name="description" id="description" [(ngModel)]="todoObj.description" value={{todoObj.description}}></textarea>
+      <label for="expenses">Expense</label>
+      <input type="text" name="expenses" id="expenses" [(ngModel)]="todoObj.expenses" value={{todoObj.expenses}}>
+      <label for="date">Date Created</label>
+      <input type="date" name="date" id="date" [(ngModel)]="todoObj.created" value={{todoObj.created}}>
+      <button (click)="addTodo()">Add Todo</button>
+  </div>
+</div>

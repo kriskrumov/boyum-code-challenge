@@ -1,0 +1,27 @@
+<div class="todo-details-wrapper">
+    <div class="todo-details-header">
+        <p><b>ID:</b> {{todo.Id}}</p>
+        @if (todo.Done) {
+            <p class="status status-completed">Completed</p>
+        } @else(){
+            <p class="status status-not-completed">Not Completed</p>
+        }
+    </div>
+    <div class="details-title-wrapper">
+        <h2>{{todo.Name}}</h2>
+    </div>
+    <div class="details-second-wrapper">
+        <p id="todo-description">{{todo.Description}}</p>
+        <p><b>Expenses:</b> {{this.formatedExpense}}$</p>
+        @if(isValidDate(todo.Created)){
+            <p><b>Days Old:</b> {{daysAgo}}</p>
+        }@else {
+            <p class="invalid-data">Days Cannot Be Calculated</p>
+        }
+        @if(isValidDate(todo.Created)){
+            <p><b>Date:</b> {{todo.Created | date: 'dd/MM/yyyy'}}</p>
+        }@else{
+            <p class="status invalid-data">Date is Invalid</p>
+        }
+    </div>
+</div>

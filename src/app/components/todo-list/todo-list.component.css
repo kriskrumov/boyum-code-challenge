@@ -1,0 +1,102 @@
+.done{
+    text-decoration: line-through;
+}
+
+#invalid-date{
+    padding: 12px;   
+}
+
+a{
+  text-decoration: none;
+}
+
+.row-clickable:hover{
+  cursor: pointer;
+  background-color: #f5f2f252;
+}
+
+td span{
+  border: 1px solid black;
+  padding: 1px;
+  background-color: red;
+  color: white;
+}
+
+.todo-list-wrapper{
+    display: flex;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+  .todo-table {
+    margin: 30px 40px;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 30px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #666;
+
+  }
+
+  td {
+    border: 1px solid #ccc;
+}
+  
+  .todo-table th,
+  .todo-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .loading-cell {
+    text-align: center;
+  }
+
+  #td{
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  #created-td{
+    width: 200px;
+  }
+  
+  .form-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-wrapper input[type="text"],
+  .form-wrapper input[type="date"],
+  .form-wrapper button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-wrapper input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .form-wrapper button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-wrapper button:hover {
+    background-color: #45a049;
+  }
