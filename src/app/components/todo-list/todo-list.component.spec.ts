@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoListComponent } from './todo-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -8,7 +9,7 @@ describe('TodoListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoListComponent]
+      imports: [TodoListComponent, HttpClientTestingModule]
     })
     .compileComponents();
     

@@ -17,7 +17,7 @@
                 <td id="td" scope="row" (click)="$event.stopPropagation()"><app-check-box [isChecked]="todo.Done"/></td>
                 <td id="td">{{todo.Id}}</td>
                 <td><a [routerLink]="['/todo', todo.Id]" [ngClass]="{'done' : todo.Done}">{{todo.Name}}</a></td>
-                @if(isValidDate(todo.Created)){
+                @if(dateService.isValidDate(todo.Created)){
                   <td id="created-td">{{todo.Created | date: 'dd/MM/yyyy'}}</td>
                 }@else {
                   <td id="invalid-date"><span>Invalid Date</span></td>

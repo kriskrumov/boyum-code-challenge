@@ -13,12 +13,12 @@
     <div class="details-second-wrapper">
         <p id="todo-description">{{todo.Description}}</p>
         <p><b>Expenses:</b> {{this.formatedExpense}}$</p>
-        @if(isValidDate(todo.Created)){
+        @if(dateService.isValidDate(todo.Created)){
             <p><b>Days Old:</b> {{daysAgo}}</p>
         }@else {
             <p class="invalid-data">Days Cannot Be Calculated</p>
         }
-        @if(isValidDate(todo.Created)){
+        @if(dateService.isValidDate(todo.Created)){
             <p><b>Date:</b> {{todo.Created | date: 'dd/MM/yyyy'}}</p>
         }@else{
             <p class="status invalid-data">Date is Invalid</p>

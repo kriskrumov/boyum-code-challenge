@@ -3,7 +3,7 @@ import { Todo } from '../../types';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
-
+import { DateService } from '../../services/date.service';
 @Component({
   selector: 'app-todo-details',
   standalone: true,
@@ -26,7 +26,7 @@ export class TodoDetailsComponent {
     Id: 0
   }
 
-  constructor(private route: ActivatedRoute, private service: ApiService, private decimalPipe: DecimalPipe, @Inject(LOCALE_ID) private locale: string){}
+  constructor(private route: ActivatedRoute, private service: ApiService, private decimalPipe: DecimalPipe, @Inject(LOCALE_ID) private locale: string, public dateService: DateService){}
 
   CalculateDays(dateCreated: any){
     const millisecondsPerDay = 1000 * 3600 * 24;
@@ -35,10 +35,6 @@ export class TodoDetailsComponent {
     
     const differenceInMilliseconds = currentDate - createdDate;
     this.daysAgo = Math.round(differenceInMilliseconds / millisecondsPerDay);
-  }
-
-  isValidDate(date: any): boolean {
-    return !isNaN(new Date(date).getTime());
   }
 
   ngOnInit(){
