@@ -10,7 +10,7 @@
     <div class="details-title-wrapper">
         <h2>{{todo.Name}}</h2>
     </div>
-    <div class="details-second-wrapper">
+    <div class="details-info-wrapper">
         <p id="todo-description">{{todo.Description}}</p>
         <p><b>Expenses:</b> {{this.formatedExpense}}$</p>
         @if(dateService.isValidDate(todo.Created)){
