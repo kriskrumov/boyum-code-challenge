@@ -28,15 +28,23 @@
   </tbody>
   </table>
   
-  <div class="form-wrapper">
-      <label for="name">Title</label>
-      <input type="text" name="name" id="name" [(ngModel)]="todoObj.name" value={{todoObj.name}}>
-      <label for="description">Description</label>
-      <textarea name="description" id="description" [(ngModel)]="todoObj.description" value={{todoObj.description}}></textarea>
-      <label for="expenses">Expense</label>
-      <input type="text" name="expenses" id="expenses" [(ngModel)]="todoObj.expenses" value={{todoObj.expenses}}>
-      <label for="date">Date Created</label>
-      <input type="date" name="date" id="date" [(ngModel)]="todoObj.created" value={{todoObj.created}}>
-      <button (click)="addTodo()">Add Todo</button>
-  </div>
+  <form action="" #formCtrl="ngForm" (ngSubmit)="addTodo()">
+    <div class="form-wrapper">
+        <label for="name">Title*</label>
+        <input type="text" name="name" id="name" [(ngModel)]="todoObj.name" value={{todoObj.name}} required>
+        @if (!formCtrl.form.valid) {
+          <span>Name cannot be empty!</span>
+        }
+        <label for="description">Description</label>
+        <textarea name="description" id="description" [(ngModel)]="todoObj.description" value={{todoObj.description}}></textarea>
+        <label for="expenses">Expense</label>
+        <input type="text" name="expenses" id="expenses" [(ngModel)]="todoObj.expenses" value={{todoObj.expenses}}>
+        <label for="date">Date Created</label>
+        <input type="date" name="date" id="date" [(ngModel)]="todoObj.created" value={{todoObj.created}}>
+        <button [disabled]="!formCtrl.valid">Add Todo</button>
+    </div>
+  </form>
+</div>
+<div>
+  <router-outlet></router-outlet>
 </div>

@@ -6,10 +6,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DateService } from '../../services/date.service';
+import { RouterOutlet } from '@angular/router';
+import { TodoDetailsComponent } from '../../pages/todo-details/todo-details.component';
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [CheckBoxComponent, CommonModule,RouterLink, FormsModule],
+  imports: [CheckBoxComponent, CommonModule,RouterLink, FormsModule,RouterOutlet, TodoDetailsComponent],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })

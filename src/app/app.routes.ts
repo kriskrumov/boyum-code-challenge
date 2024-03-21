@@ -5,7 +5,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'todo/:id', component: TodoDetailsComponent},
+    { path: '', component: HomeComponent, children: [
+        { path: 'todo/:id', component: TodoDetailsComponent},
+    ]},
     { path: '**', component: PageNotFoundComponent}
 ];

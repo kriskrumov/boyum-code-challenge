@@ -38,19 +38,21 @@ export class TodoDetailsComponent {
   }
 
   ngOnInit(){
-    this.todoId = this.route.snapshot.paramMap.get('id');
-    this.service.getData().subscribe((item) => {
-      this.filteredElement = item.find(x => x.Id == this.todoId);
-      this.todo = {
-        Name: this.filteredElement.Name,
-        Description: this.filteredElement.Description,
-        Created: this.filteredElement.Created,
-        Expenses: this.filteredElement.Expenses,
-        Done: this.filteredElement.Done,
-        Id: this.filteredElement.Id
-      }
-      this.formatedExpense = this.decimalPipe.transform(this.filteredElement.Expenses, '1.2-2', this.locale);
-      this.CalculateDays(this.todo.Created);
+    this.route.params.subscribe(() => {
+      this.todoId = this.route.snapshot.paramMap.get('id');
+      this.service.getData().subscribe((item) => {
+        this.filteredElement = item.find(x => x.Id == this.todoId);
+        this.todo = {
+          Name: this.filteredElement.Name,
+          Description: this.filteredElement.Description,
+          Created: this.filteredElement.Created,
+          Expenses: this.filteredElement.Expenses,
+          Done: this.filteredElement.Done,
+          Id: this.filteredElement.Id
+        }
+        this.formatedExpense = this.decimalPipe.transform(this.filteredElement.Expenses, '1.2-2', this.locale);
+        this.CalculateDays(this.todo.Created);
+      })
     })
   }
 }
